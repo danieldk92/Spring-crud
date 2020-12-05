@@ -13,12 +13,11 @@ import java.util.Optional;
 @RequestMapping("/")
 public class ProductController {
 
-    @Autowired
     ProductService productService;
 
-    @RequestMapping("/")
-    public String getHello(){
-        return "Hello friend";
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/all")

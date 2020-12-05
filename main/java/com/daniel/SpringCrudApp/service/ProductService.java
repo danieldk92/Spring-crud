@@ -12,8 +12,12 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
-    @Autowired
     ProductRepository repo;
+
+    @Autowired
+    public ProductService(ProductRepository repo) {
+        this.repo = repo;
+    }
 
     public List<Product> getAllProducts(){
        return repo.findAll();
